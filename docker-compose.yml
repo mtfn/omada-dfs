@@ -1,0 +1,18 @@
+services:
+  eap:
+    image: node:22
+    container_name: dfs-switch
+    working_dir: /app
+    volumes:
+      - ./:/app
+    command: ["node", "index.js"]
+    environment:
+      - NODE_ENV=production
+      - SERVER=https://myserver:8043
+      - CID=my-omada-cid
+      - CLIENT_ID=my-omada-clientid
+      - CLIENT_SECRET=my-omada-secret
+      - SITE_ID=my-omada-site-id
+      - APS=AB-CD-EF-01-23-45
+      - INTERVAL=500000
+    restart: unless-stopped 
